@@ -1,0 +1,20 @@
+name: Hello_workflow
+on:
+  push:
+    branches: -main
+  push_request: -main
+  workflow_dispatch:
+jobs:
+  hello-word:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Hello word
+        run: echo "Hello github"
+        shell: bash
+  goodbye:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Goodbye see you later
+      - run: echo "Goodbye github"
+        shell: bash
