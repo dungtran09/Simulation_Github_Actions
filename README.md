@@ -33,7 +33,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Hello word
-        # Print output from both first
+        # Print output from first step
         run: echo "Hello github"
         shell: bash
 
