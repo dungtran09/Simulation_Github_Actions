@@ -1,0 +1,54 @@
+[![Hello_workflow](https://github.com/dungtran09/github-actions/actions/workflows/actions.yaml/badge.svg)](https://github.com/dungtran09/github-actions/actions/workflows/actions.yaml)
+
+# simple-action
+
+> A very simple GitHub action implementing the command design pattern
+
+## Context post
+
+This repository is an example action adopting the design pattern discussed in this blog post: [Adopting the command design pattern for GitHub Actions](https://blog.bassemdy.com/2021/04/05/github/actions/design-patterns/command/best-practices/adopt-command-pattern-for-actions.html)
+
+## Usage
+
+### Workflow setup
+
+If you introduce changes to the action, **don't forget to build**! The action's entry point is `dist/index.js` not `src/cli.js`. You can trigger a build by running: `npm run build`.
+
+```yaml
+name: Hello_workflow
+
+on:
+  push:
+    branches:
+      - main
+    pull_request:
+      branches:
+        - main
+    workflow_dispatch:
+# Jobs simulation
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    # Because the action is hosted in this same repository and it has not
+    # been published to the marketplace, we have to checkout the repo
+    # so that we can call the local action in the next steps
+    steps:
+      - uses: actions/checkout@v2
+      - name: Hello word
+        # Print output from both first
+        run: echo "Hello github"
+        shell: bash
+
+  goodbye:
+    runs-on: ubuntu-latest
+    steps:
+        - name: Goodbye see you later
+        # Print output from second steps
+        run: echo "Goodbye github"
+        shell: bash
+
+```
+
+## License
+
+- [MIT License](./LICENSE)
