@@ -12,8 +12,6 @@ This repository is an example action adopting the design pattern discussed in th
 
 ### Workflow setup
 
-If you introduce changes to the action, **don't forget to build**! The action's entry point is `dist/index.js` not `src/cli.js`. You can trigger a build by running: `npm run build`.
-
 ```yaml
 name: Hello_workflow
 
