@@ -2,11 +2,12 @@ name: Hello_workflow
 on:
   push:
     branches: -main
-  push_request: -main
+    pull_request:
+      branches: -main
   workflow_dispatch:
-jobs:
-  hello-word:
-    runs-on: ubuntu-latest
+    jobs:
+      hello-word:
+      runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Hello word
